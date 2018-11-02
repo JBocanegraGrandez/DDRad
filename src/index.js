@@ -1,9 +1,10 @@
 import _ from 'lodash';
 import './style.css';
 import DownArrowGif from './down.gif';
-import DownArrow from './arrows_sprites.png'
-import * as Arrows from "../lib/arrow"
-
+import * as Arrows from "../lib/arrow";
+import Score from '../lib/score';
+import ArrowExplosionDim from './Down Tap Explosion Dim.png';
+import ArrowExplosionBright from './Down Tap Explosion Bright.png';
 
 
 
@@ -35,23 +36,18 @@ canvas.width = 1280;
 canvas.height = 720;
 const ctx = canvas.getContext("2d")
 
-var downArrow = new Image();
-downArrow.src = DownArrow;
-downArrow.onload = () =>{
-    ctx.drawImage(downArrow, 0,0,64,64,
-        0, 80, 96, 96)
-}
+
 window.AFRONOVA = document.getElementById("afronova");
  AFRONOVA.addEventListener('playing', () => { 
      loop();
      reader(moves);
 
     })
-
-let leftMovingArrow = new Arrows.leftMovingArrow(720);
-let downMovingArrow = new Arrows.downMovingArrow(720);
-let upMovingArrow = new Arrows.upMovingArrow(816);
-let rightMovingArrow = new Arrows.rightMovingArrow(816);
+let score = new Score
+let leftMovingArrow = new Arrows.leftMovingArrow;
+let downMovingArrow = new Arrows.downMovingArrow;
+let upMovingArrow = new Arrows.upMovingArrow;
+let rightMovingArrow = new Arrows.rightMovingArrow;
 
 let downStaticArrow = new Arrows.downStaticArrow(80)
 let leftStaticArrow = new Arrows.leftStaticArrow(80)
@@ -259,13 +255,17 @@ function startgame (timestamp) {
 function removeIfValid (direction) {
     visible.forEach(arrow => {
         if (arrow.type !== direction) {
+            // console.log('arrowsprite')
             return 
         } else {
             // console.log(arrow.y)
             // console.log(arrow.distance + arrow.y)
             if (arrow.distance + arrow.y > 50 && arrow.y + arrow.distance < 120) {
+                // makeItShine(direction)
                 arrow.remove()
+                score.score += 10
             }
+    
         }
     })
 }
@@ -345,7 +345,7 @@ function loop() {
     upStaticArrow.draw(ctx, cf)
     rightStaticArrow.draw(ctx, cf)
 
-    
+    score.draw(ctx)
     // console.log(beat)
     
 
@@ -360,40 +360,40 @@ function checkKeyPressed(e) {
     
     switch(e.keyCode) {
         case 65:
-            console.log("The 'a' key is pressed.");
+            // console.log("The 'a' key is pressed.");
             removeIfValid("left");
             break;
         case 83:
-            console.log("The 's' key is pressed.");
+            // console.log("The 's' key is pressed.");
             removeIfValid("down");
             break;
         case 68:
-            console.log("The 'd' key is pressed.");
+            // console.log("The 'd' key is pressed.");
             removeIfValid("right");
             break;
         case 87:
-            console.log("The 'w' key is pressed.");
+            // console.log("The 'w' key is pressed.");
             removeIfValid("up");
             break;
         case 37:
             e.preventDefault();
-            console.log("The 'left' key is pressed.");
+            // console.log("The 'left' key is pressed.");
             // visible[0].remove();
             removeIfValid("left");
             break;
         case 38:
             e.preventDefault();
-            console.log("The 'up' key is pressed.");
+            // console.log("The 'up' key is pressed.");
             removeIfValid("up");
             break;
         case 39:
             e.preventDefault();
-            console.log("The 'right' key is pressed.");
+            // console.log("The 'right' key is pressed.");
             removeIfValid("right");
             break;
         case 40:
             e.preventDefault();
-            console.log("The 'down' key is pressed.");
+            // console.log("The 'down' key is pressed.");
             removeIfValid("down");
             break;
     }
