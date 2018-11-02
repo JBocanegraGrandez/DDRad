@@ -1,0 +1,22 @@
+ @font-face {
+   font-family: 'DDrad';
+   src: url('./Aero.ttf') format('truetype');
+   font-weight: 600;
+   font-style: normal;
+ }
+
+.hello {
+  color: black;
+  font-size: 60px;
+  font-family: 'DDrad';
+  /* background: url('./down.gif') */
+}
+
+/* #game-canvas {
+  width: 1280px;
+  height: 720px;
+} */
+
+#game-canvas {
+  background-color: black;
+}

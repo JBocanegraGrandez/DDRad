@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Welcome to DDrad</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
+</head>
+<body>
+    <audio id="afronova">
+        <!-- <source src="../src/AFRONOVA.ogg" type="audio/ogg"> -->
+            <source src="../src/AFRONOVA.mp3" type="audio/mpeg">
+            <!-- <source src="../src/click200.mp3" type="audio/mpeg"> -->
+            </audio>
+            <canvas id="game-canvas"></canvas>
+            <script src="main.js"></script>
+            <button onclick="playAudio()" type="button">Play Audio</button>
+            <button onclick="pauseAudio()" type="button">Pause Audio</button>
+            <!-- <button onclick="loop()" type="button">Play Game</button> -->
+    
+    <script>
+        var x = document.getElementById("afronova");
+
+        function playAudio() {
+            x.play();
+        }
+
+        function pauseAudio() {
+            x.pause();
+        }
+        </script>
+</body>
+</html>
