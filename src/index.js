@@ -3,8 +3,12 @@ import './style.css';
 import DownArrowGif from './down.gif';
 import * as Arrows from "../lib/arrow";
 import Score from '../lib/score';
-import ArrowExplosionDim from './Down Tap Explosion Dim.png';
-import ArrowExplosionBright from './Down Tap Explosion Bright.png';
+import Rating from '../lib/rating';
+import ArrowExplosionDim from './Down_Tap_Explosion_Dim.png';
+import ArrowExplosionBright from './Down_Tap_Explosion_Bright.png';
+
+let arrowExplosionDim = new Image();
+arrowExplosionDim.src = ArrowExplosionDim
 
 
 
@@ -44,6 +48,7 @@ window.AFRONOVA = document.getElementById("afronova");
 
     })
 let score = new Score
+let rating = new Rating
 let leftMovingArrow = new Arrows.leftMovingArrow;
 let downMovingArrow = new Arrows.downMovingArrow;
 let upMovingArrow = new Arrows.upMovingArrow;
@@ -53,6 +58,13 @@ let downStaticArrow = new Arrows.downStaticArrow(80)
 let leftStaticArrow = new Arrows.leftStaticArrow(80)
 let upStaticArrow = new Arrows.upStaticArrow(80)
 let rightStaticArrow = new Arrows.rightStaticArrow(80)
+
+let staticHash = {
+    "left": leftStaticArrow,
+    "down": downStaticArrow,
+    "up": upStaticArrow,
+    "right": rightStaticArrow,
+}
 
 // operations for beat-arrows_sprites relationship
 var beat = 0
@@ -261,9 +273,10 @@ function removeIfValid (direction) {
             // console.log(arrow.y)
             // console.log(arrow.distance + arrow.y)
             if (arrow.distance + arrow.y > 50 && arrow.y + arrow.distance < 120) {
-                // makeItShine(direction)
+                staticHash[direction].makeItShine()
                 arrow.remove()
                 score.score += 10
+                rating.rating = 'Great'
             }
     
         }
@@ -346,6 +359,7 @@ function loop() {
     rightStaticArrow.draw(ctx, cf)
 
     score.draw(ctx)
+    rating.draw(ctx)
     // console.log(beat)
     
 
