@@ -1,5 +1,6 @@
 # DDrad
 
+ ## [Live](https://jbocanegragrandez.github.io/DDrad/)
  DDrad is a my own version of the Dance Dance Revolution game, made in javascript to play on the go. User will select a song. A certain number of arrows that represent dance moves will appear on the screen. 
  
  The user must press the corresponding key on the keyboard in a timely manner (matching the beat/tempo of the song) in order to earn some points. The user loses a portion of his health bar when failing on pressing the correct key. 
