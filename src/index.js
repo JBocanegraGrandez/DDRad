@@ -32,6 +32,7 @@ document.body.appendChild(component());
 
 let loop_button = document.createElement("button")
 loop_button.innerText = "play"
+loop_button.className = "game-button"
 loop_button.addEventListener('click', startgame)
 document.body.appendChild(loop_button)
 let canvas = document.getElementById("game-canvas");
@@ -250,10 +251,6 @@ let moves = [
     ['left', 288.3333], ['up', 288.3333],
 
     ['down', 289], ['up', 289]
-
-
-
-
 ]
 
 

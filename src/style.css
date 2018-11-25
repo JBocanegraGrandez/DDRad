@@ -9,6 +9,8 @@
   color: black;
   font-size: 60px;
   font-family: 'DDrad';
+  display: flex;
+  justify-content: center;
   /* background: url('./down.gif') */
 }
 
@@ -19,4 +21,49 @@
 
 #game-canvas {
   background-color: black;
+  margin-bottom: 20px;
+  /* justify-self: center; */
+}
+
+.game-button {
+  height: 48px;
+  width: 100%;
+  cursor: pointer;
+  padding: 12px 18px 13px;
+  font-size: 16px;
+  color: white;
+  border-radius: 3px;
+  border-color: #8d0005;
+  box-shadow: 0 1px 1px rgba(0,0,0,0.3);
+  background-color: #d90007;
+  border: 1px solid #333333;
+  font-weight: bold;
+  background: linear-gradient(#d90007, #c91400);
+  background-image: linear-gradient(#d90007, #c91400);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat-x: initial;
+  background-repeat-y: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: #d90007;
+}
+
+body {
+  /* display: flex;
+  flex-direction: column;
+  justify-content: center; */
+}
+
+.canvas-holder {
+  display: flex;
+  justify-content: center;
+}
+
+.button-holder {
+  display: flex;
+  flex-direction: column;
+  /* width: 1280px; */
 }

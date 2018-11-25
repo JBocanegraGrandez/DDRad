@@ -13,12 +13,15 @@
             <source src="./src/AFRONOVA.mp3" type="audio/mpeg">
             <!-- <source src="../src/click200.mp3" type="audio/mpeg"> -->
             </audio>
+            <div class="canvas-holder">
             <canvas id="game-canvas"></canvas>
+            </div>
             <script src="main.js"></script>
-            <button onclick="playAudio()" type="button">Play Audio</button>
-            <button onclick="pauseAudio()" type="button">Pause Audio</button>
-            <!-- <button onclick="loop()" type="button">Play Game</button> -->
-    
+            <div class="button-holder">
+                <button class="game-button" onclick="playAudio()" type="button">Resume Audio</button>
+                <button class="game-button" onclick="pauseAudio()" type="button">Pause Audio</button>
+                <!-- <button onclick="loop()" type="button">Play Game</button> -->
+            </div>
     <script>
         var x = document.getElementById("afronova");
 
