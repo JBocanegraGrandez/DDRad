@@ -9,6 +9,10 @@ import ArrowExplosionBright from './Down_Tap_Explosion_Bright.png';
 import movesEasy from '../lib/afronova_easy'
 import movesHard from '../lib/afronova_hard'
 
+import PlayIcon from '../src/play_icon.png';
+import MuteIcon from '../src/mute_icon.png';
+import PauseIcon from '../src/pause_icon.png';
+
 let difficulty
 
 let movesDifficulty = {
@@ -59,12 +63,54 @@ function component() {
     element.classList.add('hello');
     
     // Add the image to our existing div.
+    
     var downArrowGif = new Image();
     downArrowGif.src = DownArrowGif;
+
+    var playIcon = new Image();
+    playIcon.src = PlayIcon
+    playIcon.setAttribute('height', "60px")
+    playIcon.style.marginLeft = "5px"
+    playIcon.onclick=playAudio
+
+    var pauseIcon = new Image();
+    pauseIcon.src = PauseIcon
+    pauseIcon.setAttribute('height', "60px")
+    pauseIcon.style.marginLeft = "5px";
+    pauseIcon.onclick=pauseAudio
+
+
+    var muteIcon = new Image();
+    muteIcon.src = MuteIcon
+    muteIcon.setAttribute('height', "60px")
+    muteIcon.style.marginLeft = "5px";
+    muteIcon.onclick=muteAudio
+
     
     element.appendChild(downArrowGif);
+    element.appendChild(playIcon)
+    element.appendChild(pauseIcon)
+    element.appendChild(muteIcon)
     
     return element;
+}
+
+var music = document.getElementById("afronova");
+
+function pauseAudio() {
+    music.pause()
+}
+
+function playAudio() {
+    music.play()
+}
+
+function muteAudio() {
+    if (music.volume === 0) {
+        music.volume = 1
+    } else {
+        music.volume = 0
+    }
 }
 
 document.body.prepend(component());
