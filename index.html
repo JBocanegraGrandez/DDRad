@@ -8,18 +8,23 @@
     <!-- <link rel="stylesheet" type="text/css" media="screen" href="main.css" /> -->
 </head>
 <body>
-    <audio id="afronova">
-        <!-- <source src="../src/AFRONOVA.ogg" type="audio/ogg"> -->
+    <audio id="afronova">      
             <source src="./src/AFRONOVA.mp3" type="audio/mpeg">
-            <!-- <source src="../src/click200.mp3" type="audio/mpeg"> -->
-            </audio>
+    </audio>
+    <audio id="capjack">      
+            <source src="./src/captainjack.mp3" type="audio/mpeg">
+    </audio>
             <div class="canvas-holder">
-            <canvas id="game-canvas"></canvas>
+            <div id="welcome-menu" class="welcome-menu">
+                <h1 id="wm-1">Welcome</h2>
+                <h3 id="wm-2">Click Here to Play </h2>
+            </div>
+            <canvas id="game-canvas" hidden></canvas>
             </div>
             <script src="main.js"></script>
             <div class="button-holder">
-                <button class="game-button" onclick="playAudio()" type="button">Resume Audio</button>
-                <button class="game-button" onclick="pauseAudio()" type="button">Pause Audio</button>
+                <button id="play-audio" hidden class="game-button" onclick="playAudio()" type="button">Resume Audio</button>
+                <button id="pause-audio" hidden class="game-button" onclick="pauseAudio()" type="button">Pause Audio</button>
                 <!-- <button onclick="loop()" type="button">Play Game</button> -->
             </div>
     <script>
