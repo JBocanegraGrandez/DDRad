@@ -26,6 +26,7 @@ function hideMenuAndStart() {
     console.log('buttonworks')
     document.getElementById("game-canvas").removeAttribute("hidden")
     document.getElementById("welcome-menu").setAttribute("hidden", true)
+    document.getElementById("welcome-menu").removeAttribute("class")
     document.getElementById("wm-1").setAttribute("hidden", true)
     document.getElementById("wm-2").setAttribute("hidden", true)
     document.getElementById("play-audio").removeAttribute("hidden")
