@@ -9,6 +9,8 @@ import ArrowExplosionBright from './Down_Tap_Explosion_Bright.png';
 import movesEasy from '../lib/afronova_easy'
 import movesHard from '../lib/afronova_hard'
 
+let difficulty
+
 let movesDifficulty = {
     easy: movesEasy,
     hard: movesHard
@@ -17,13 +19,28 @@ let movesDifficulty = {
 let arrowExplosionDim = new Image();
 arrowExplosionDim.src = ArrowExplosionDim
 
-let startButton = document.getElementById("wm-2")
-startButton.onclick=hideMenuAndStart
+let startButtonEasy = document.getElementById("wm-2")
+startButtonEasy.onclick=hideMenuAndStartEasy
+
+let startButtonHard = document.getElementById("wm-3")
+startButtonHard.onclick=hideMenuAndStartHard
 
 
 
-function hideMenuAndStart() {
-    console.log('buttonworks')
+function hideMenuAndStartEasy() {
+    difficulty = 'easy'
+    document.getElementById("game-canvas").removeAttribute("hidden")
+    document.getElementById("welcome-menu").setAttribute("hidden", true)
+    document.getElementById("welcome-menu").removeAttribute("class")
+    document.getElementById("wm-1").setAttribute("hidden", true)
+    document.getElementById("wm-2").setAttribute("hidden", true)
+    document.getElementById("play-audio").removeAttribute("hidden")
+    document.getElementById("pause-audio").removeAttribute("hidden")
+    loop_button.removeAttribute("hidden")
+    startgame()
+}
+function hideMenuAndStartHard() {
+    difficulty = 'hard'
     document.getElementById("game-canvas").removeAttribute("hidden")
     document.getElementById("welcome-menu").setAttribute("hidden", true)
     document.getElementById("welcome-menu").removeAttribute("class")
@@ -69,7 +86,7 @@ const ctx = canvas.getContext("2d")
 window.AFRONOVA = document.getElementById("afronova");
  AFRONOVA.addEventListener('playing', () => { 
      loop();
-     reader(movesEasy);
+     reader(movesDifficulty[difficulty]);
 
     })
 let score = new Score
@@ -118,7 +135,8 @@ function removeIfValid (direction) {
                 staticHash[direction].makeItShine()
                 arrow.remove()
                 score.score += 10
-                rating.rating = 'Great'
+                rating.rating = 'Perfect'
+                setTimeout(() => (rating.rating = ""), 500)
             }
     
         }
